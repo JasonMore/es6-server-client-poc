@@ -1,9 +1,13 @@
-var angular = require('angular');
+var app = angular.module('app', ['ngTouch', 'ui.router']);
 
-var TestController = require('./home/TestController.js');
+app.config(($stateProvider, $urlRouterProvider) =>{
+	$urlRouterProvider.otherwise('/');
+	$stateProvider
+		.state('home', {
+			url: '/',
+			template: require('./home/home.html'),
+			controller: require('./home/TestController.js')
+		})
+});
 
-var app = angular.module('app', []);
-app.controller('TestController', TestController);
-
-
-export {app};
+module.exports = app;

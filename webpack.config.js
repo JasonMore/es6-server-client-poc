@@ -15,7 +15,8 @@ module.exports = {
 		loaders: [
 			{ test: /\.html$/, loader: "raw" },
 			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?optional=runtime', cacheDirectory:__dirname + "/app/_bundle/cache"},
-			{ test: /\.css$/, loader: "style!css" }
+			{ test: /\.css$/, loader: "style!css" },
+			{ test: /\.less$/, loader: "style!css!less"}
 		]
 	}
 };
